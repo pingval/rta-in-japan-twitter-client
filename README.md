@@ -66,7 +66,7 @@ Windows 10 Home での動作を確認しています。
 [node.js](https://nodejs.org/ja/download)をインストールする。
 (v17以上の場合、`set NODE_OPTIONS="--openssl-legacy-provider"`が必要になる)
 
-Twitter APIサーバーを起動しておく。
+[Twitter APIサーバー](https://github.com/pingval/rtainjapan-twitter-api-node)を起動しておく。
 
 ```
 cd rta-in-japan-twitter-client-master
