@@ -10,7 +10,8 @@
     - [ngrokの設定](#ngrokの設定)
     - [webpack.config.tsの設定](#webpackconfigtsの設定)
   - [走者情報APIサンプル](#走者情報apiサンプル)
-  - [その他、変えたほうがよさそうなところ](#その他変えたほうがよさそうなところ)
+  - [変えたほうがよさそうなところなど](#変えたほうがよさそうなところなど)
+  - [その他注意点](#その他注意点)
 
 <!-- /TOC -->
 
@@ -65,7 +66,7 @@ Windows 10 Home での動作を確認しています。
 
 ## ローカルで動かす
 
-以下の2点を動かす
+以下の2点を動かす。
 - Twiter API
 - Twitterクライアント
 
@@ -82,7 +83,7 @@ npm start
 
 ## 外部公開する
 
-以下の3点を動かす
+以下の3点を動かす。
 - Twiter API
 - Twitterクライアント
 - ngrok(トンネリングツール)
@@ -154,7 +155,7 @@ const devServerConfig: webpackDevServer.Configuration = {
 
 参考: [GASでJSON形式データをJavaScriptで読み込む方法 | iwb.jp](https://iwb.jp/javascript-json-format-data-by-google-apps-script/)
 
-## その他、変えたほうがよさそうなところ
+## 変えたほうがよさそうなところなど
 
 - [static/index.html](static/index.html)
   - title要素
@@ -171,8 +172,18 @@ const devServerConfig: webpackDevServer.Configuration = {
 - [js/components/organisms/TweetForm/index.tsx](js/components/organisms/TweetForm/index.tsx)
   - テンプレに細かく手を加えたいなら。
 
+## その他注意点
+
+- ボランティアに使ってもらうにあたり、ボランティアのTwitterアカウント情報は不要です。Discord認証用のDiscord ID(開発者モードで見れるやつ)は必要です。
+- Twitterの鍵アカウントを用意しておき、テストにはそれを用いると捗ります。
+- クライアントURLが漏洩した場合に備え、多人数に公開する時はDiscord認証を有効にしておくのを強く推奨します。
+- Discord認証とDiscord Webhookを有効にしておくと、クライアント設置者にはWebhookによってツイートの投稿者がわかります。
+- 2023年9月現在、Twitter API Freeプランには[**50回/24時間**](https://zenn.dev/ptna/articles/e10881e74dfc27#%E5%88%B6%E9%99%90)のツイート制限があり、それに引っ掛かると数時間投稿不可になります。投稿時、画面左下に「Too Many Requests」と表示されることでそれがわかります。
+  - API制限に引っ掛かっても、Webクライアントの方は問題なく使えます。
+- 「ファイルアップロードに失敗」する動画がたまにありますが、本クライアントではなくTwitter自体の仕様のようです。
+
 ----
 
-あとはブラウザのデベロッパーツールとかと睨めっこしてがんばってね。
+あとはブラウザのデベロッパーツールとかと睨めっこしながらがんばってください。
 
-JSONは末尾カンマとコメントが使えないので注意してね。
+JSONは末尾カンマとコメントが使えないので気を付けてね。
