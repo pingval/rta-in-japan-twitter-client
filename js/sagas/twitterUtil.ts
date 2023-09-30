@@ -129,7 +129,7 @@ const postStatusesDestroy = async (hostBase: string, id: string): Promise<Sstatu
 };
 
 export const tweetToUrl = (tweet: Statuses): string => {
-  const url = `https://twitter.com/${tweet.user.username}/status/${tweet.id}`;
+  const url = `https://twitter.com/${tweet.username}/status/${tweet.id}`;
 
   return url;
 };
@@ -137,7 +137,7 @@ export const tweetToUrl = (tweet: Statuses): string => {
 export const tweetToReplyUrl = (tweet: Statuses): string => {
   const { in_reply_to_status } = tweet;
   if (in_reply_to_status) {
-    return `https://twitter.com/${in_reply_to_status.user.username}/status/${in_reply_to_status.id}`;
+    return `https://twitter.com/${in_reply_to_status.username}/status/${in_reply_to_status.id}`;
   } else {
     return '';
   }

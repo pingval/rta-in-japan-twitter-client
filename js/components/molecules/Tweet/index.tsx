@@ -104,16 +104,16 @@ const Tweet: React.SFC<PropsType> = (props: PropsType) => {
 
   return (
     <Paper className={classes.root}>
-      <Avatar src={props.user.profile_image_url} />
+      <Avatar src={props.profile_image_url} />
       <div style={{ marginLeft: 5, width: '100%' }}>
         {/* ユーザー名、投稿時刻 */}
         <div>
           <Typography style={{ fontWeight: 'bold', fontSize: 'small' }} variant={'subtitle1'}>
-            {props.user.name}
+            {props.name}
           </Typography>
           <span className={classes.screenName}>
             <Typography style={{ fontSize: 'xx-small' }} variant={'caption'}>
-              @{props.user.username}
+              @{props.username}
             </Typography>
           </span>
           <span className={classes.date}>

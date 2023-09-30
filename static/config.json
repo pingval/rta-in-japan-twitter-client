@@ -1,6 +1,6 @@
 {
   "api": {
-    "twitterBase": "http://localhost:8000/api/twitter/",
+    "twitterBase": "/api",
     "runner": "https://script.google.com/macros/s/xxxxxxxxxxxxxxxxxxxxxxxxxx/exec",
     "webhook": "https://discord.com/api/webhooks/xxxxxxxxxxxxxxx/xxxxxxxxxxxxxxxxxxxxxx"
   },
@@ -8,10 +8,11 @@
     "isAllowDeleteTweet": false
   },
   "discord": {
+    "enable": false,
     "config": {
       "clientId": "",
       "clientSecret": "",
-      "redirectUrl": "",
+      "redirectUrl": "Discord Developer Portal — My Applications で https://<hostname>/login/discord/",
       "scope": "identify%20guilds"
     },
     "guild": "",

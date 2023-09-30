@@ -16,7 +16,7 @@ const useStyles = (theme: Theme) =>
       position: 'relative',
     },
     column: {
-      width: 'calc(100vw / 3 - 50px)',
+      width: 'calc(100vw - 50px)',
       marginLeft: 5,
       marginRight: 5,
     },
@@ -43,18 +43,6 @@ const TweetListPC: React.SFC<PropsType> = (props: PropsType) => {
         <Typography variant={'h6'}>運営ツイート</Typography>
         <div className={classes.tweetColumn}>
           <TweetList tweets={props.list.user} deleteTweet={props.deleteTweet} replyTweet={props.replyTweet} retweet={props.retweet} />
-        </div>
-      </div>
-      <div className={classes.column}>
-        <Typography variant={'h6'}>返信</Typography>
-        <div className={classes.tweetColumn}>
-          <TweetList tweets={props.list.mention} />
-        </div>
-      </div>
-      <div className={classes.column}>
-        <Typography variant={'h6'}>ハッシュタグ</Typography>
-        <div className={classes.tweetColumn}>
-          <TweetList tweets={props.list.hash} />
         </div>
       </div>
       <div style={{ height: '100%' }}>

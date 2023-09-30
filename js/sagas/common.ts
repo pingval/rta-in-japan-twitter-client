@@ -10,7 +10,14 @@ import { Color } from './Color';
  */
 export const fetchJson = async <T>(url: string): Promise<T> => {
   try {
-    const result = await fetch(url);
+    // ngrok対策
+    const hostname = new URL(url, location.href).hostname;
+    const is_ngrok = (/\bngrok\b/i).test(hostname);
+    const headers = (is_ngrok
+                     ? { 'ngrok-skip-browser-warning': '1', }
+                     : {});
+
+    const result = await fetch(url, { 'headers': headers });
     const config = await result.json();
     return config as T;
   } catch (e) {

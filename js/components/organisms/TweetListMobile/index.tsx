@@ -33,12 +33,6 @@ const TweetListPC: React.SFC<PropsType> = (props: PropsType) => {
     {
       label: '運営ツイート',
     },
-    {
-      label: '返信',
-    },
-    {
-      label: 'ハッシュタグ',
-    },
   ];
 
   return (

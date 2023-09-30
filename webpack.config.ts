@@ -26,6 +26,12 @@ const devServerConfig: webpackDevServer.Configuration = {
   host: 'localhost',
   open: true,
   hot: true,
+  proxy: {
+    '/api': {
+      target: 'http://localhost:3000',
+      pathRewrite: { '^/api': '' },
+    },
+  },
 };
 
 const config: Configuration = {
