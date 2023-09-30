@@ -37,7 +37,7 @@ Windows 10 Home での動作を確認しています。
     * `runner` _String_ 走者情報APIのURL
     * `webhook` _String_ **[Discord Webhook](https://support.discord.com/hc/ja/articles/228383668-%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB-Webhooks%E3%81%B8%E3%81%AE%E5%BA%8F%E7%AB%A0)のURL**
 * `twitter` _Object_
-    * `isAllowDeleteTweet` _Boolean_ ツイート削除の許可(APIサーバー起動後かつ本クライアントから投稿したツイートのみ削除可能)
+    * `isAllowDeleteTweet` _Boolean_ **ツイート削除の許可(APIサーバー起動後かつ本クライアントから投稿したツイートのみ削除可能)**
 * `discord` _Object_
     * `enable` _Boolean_ **Discord認証機能を有効にする**
     * `config` _Object_ DiscordAPI認証設定
@@ -55,6 +55,8 @@ Windows 10 Home での動作を確認しています。
     * _withCommentary_ **解説がいる場合のテンプレ**
     * _withOutCommentary_ **解説がいない場合のテンプレ**
     * _common_ **共通するテンプレ**
+  * `text` _String_ **テンプレ本文**
+  * `additional?` _String_ **走者ごとのクリアタイム**
 * `tweetFooter` _String_ **全てのツイートの末尾に追加する文言**
 * `link` _Object[]_ クライアントから見れるリンクの一覧。
   * `name` _String_ リンクの表示名
