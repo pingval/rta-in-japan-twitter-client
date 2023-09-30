@@ -116,7 +116,7 @@ ngrok start twitter-client
 
 [webpack.config.ts](webpack.config.ts)
 
-最後の2行を追加する。
+webpack-dev-serverの設定に最後の2行を追加する。
 ```
 // webpack-dev-serverの設定
 const devServerConfig: webpackDevServer.Configuration = {
