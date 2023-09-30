@@ -10,7 +10,7 @@
     - [ngrokの設定](#ngrokの設定)
     - [webpack.config.tsの設定](#webpackconfigtsの設定)
   - [走者情報APIサンプル](#走者情報apiサンプル)
-  - [変えたほうがよさそうなところなど](#変えたほうがよさそうなところなど)
+  - [イベントで使うにあたって変更したほうがよさそうなところ](#イベントで使うにあたって変更したほうがよさそうなところ)
   - [その他注意点](#その他注意点)
 
 <!-- /TOC -->
@@ -20,7 +20,7 @@
 ## 概要
 
 主な変更点
-- 固定サブドメインを2個立ち上げたりCORS設定する手間を嫌い、Twitter APIにはproxyでアクセスするようにした
+- 固定サブドメインを2個立てたりCORS設定する手間を嫌い、Twitter APIにはproxyでアクセスするようにした
 - Twitter API関連の`foo.user.bar`を`foo.bar`に置換
 - Tweet一覧の返信とハッシュタグが機能していないので削除
 - fetchJson関数にngrok対策を追加(あんまり意味はない)
@@ -93,7 +93,7 @@ npm start
 [ngrok](https://ngrok.com/)のアカウントを作り、[固定サブドメイン](https://ngrok.com/blog-post/free-static-domains-ngrok-users)を作る。
 固定サブドメインを使わないとngrokを立ち上げるたびにURLが変わって非常に不便。
 
-固定サブドメインに任意の文字列を使うには有料アカウントにする必要がある。[類似のサービス](https://zenn.dev/teasy/articles/tcpexposer-intoroduction#%E9%A1%9E%E4%BC%BC%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%A8%E3%81%AE%E9%81%95%E3%81%84)を使えば無料でできるかもしれない。
+ngrokで固定サブドメインに任意の文字列を使うには課金する必要がある。[類似のサービス](https://zenn.dev/teasy/articles/tcpexposer-intoroduction#%E9%A1%9E%E4%BC%BC%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%A8%E3%81%AE%E9%81%95%E3%81%84)を使えば無料でできるかもしれない。
 
 #### 例1
 ```
@@ -155,7 +155,7 @@ const devServerConfig: webpackDevServer.Configuration = {
 
 参考: [GASでJSON形式データをJavaScriptで読み込む方法 | iwb.jp](https://iwb.jp/javascript-json-format-data-by-google-apps-script/)
 
-## 変えたほうがよさそうなところなど
+## イベントで使うにあたって変更したほうがよさそうなところ
 
 - [static/index.html](static/index.html)
   - title要素
@@ -174,8 +174,8 @@ const devServerConfig: webpackDevServer.Configuration = {
 
 ## その他注意点
 
+- テスト用のTwitterの鍵アカウントを用意しておくとテストが捗ります。
 - ボランティアに使ってもらうにあたり、ボランティアのTwitterアカウント情報は不要です。Discord認証用のDiscord ID(開発者モードで見れるやつ)は必要です。
-- Twitterの鍵アカウントを用意しておき、テストにはそれを用いると捗ります。
 - クライアントURLが漏洩した場合に備え、多人数に公開する時はDiscord認証を有効にしておくのを強く推奨します。
 - Discord認証とDiscord Webhookを有効にしておくと、クライアント設置者にはWebhookによってツイートの投稿者がわかります。
 - 2023年9月現在、Twitter API Freeプランには[**50回/24時間**](https://zenn.dev/ptna/articles/e10881e74dfc27#%E5%88%B6%E9%99%90)のツイート制限があり、それに引っ掛かると数時間投稿不可になります。投稿時、画面左下に「Too Many Requests」と表示されることでそれがわかります。
