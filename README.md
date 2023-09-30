@@ -19,7 +19,7 @@
 ## 概要
 
 主な変更点
-- 固定サブドメインを2個立ち上げたりCORS設定する手間を嫌い、APIサーバーにはproxyでアクセスするようにした
+- 固定サブドメインを2個立ち上げたりCORS設定する手間を嫌い、Twitter APIにはproxyでアクセスするようにした
 - Twitter API関連の`foo.user.bar`を`foo.bar`に置換
 - Tweet一覧の返信とハッシュタグが機能していないので削除
 - fetchJson関数にngrok対策を追加(あんまり意味はない)
@@ -37,7 +37,7 @@ Windows 10 Home での動作を確認しています。
     * `runner` _String_ 走者情報APIのURL
     * `webhook` _String_ **[Discord Webhook](https://support.discord.com/hc/ja/articles/228383668-%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB-Webhooks%E3%81%B8%E3%81%AE%E5%BA%8F%E7%AB%A0)のURL**
 * `twitter` _Object_
-    * `isAllowDeleteTweet` _Boolean_ **ツイート削除の許可(APIサーバー起動後かつ本クライアントから投稿したツイートのみ削除可能)**
+    * `isAllowDeleteTweet` _Boolean_ **ツイート削除の許可(API起動後かつ本クライアントから投稿したツイートのみ削除可能)**
 * `discord` _Object_
     * `enable` _Boolean_ **Discord認証機能を有効にする**
     * `config` _Object_ DiscordAPI認証設定
@@ -65,10 +65,14 @@ Windows 10 Home での動作を確認しています。
 
 ## ローカルで動かす
 
+以下の2点を動かす
+- Twiter API
+- Twitterクライアント
+
 [node.js](https://nodejs.org/ja/download)をインストールする。
 (v17以上の場合、`set NODE_OPTIONS="--openssl-legacy-provider"`が必要になる)
 
-[Twitter APIサーバー](https://github.com/pingval/rtainjapan-twitter-api-node)を起動しておく。
+[Twitter API](https://github.com/pingval/rtainjapan-twitter-api-node)を起動しておく。
 
 ```
 cd rta-in-japan-twitter-client-master
@@ -77,6 +81,11 @@ npm start
 ```
 
 ## 外部公開する
+
+以下の3点を動かす
+- Twiter API
+- Twitterクライアント
+- ngrok(トンネリングツール)
 
 ### ngrokの設定
 
