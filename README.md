@@ -41,20 +41,20 @@ Windows 10 Home での動作を確認しています。
 * `discord` _Object_
     * `enable` _Boolean_ **Discord認証機能を有効にする**
     * `config` _Object_ DiscordAPI認証設定
-      * `baseURL` _String_ (使わない)
+      * `baseURL` _String_ **(使わない)**
       * `clientId` _String_  DiscordAPIのクライアントID
       * `clientSecret` _String_ (使わない)
       * `redirectUrl` _String_ **(使わない) ここで入力した値ではなく https://discord.com/developers/applications/ > OAuth2 > General > Redirects の値が使用される。 `https://<hostname>/login/discord/` と設定する。**
-      * `scope` _String_ Scope よくわからない
-    * `guild` _String_ サーバID **(IDは開発者モードで取得可能)**
-    * `roles` _String[]_ 権限ID (使わない？)
+      * `scope` _String_ Scope **よくわからない**
+    * `guild` _String_ サーバID **(IDは[開発者モード](https://support.discord.com/hc/ja/articles/206346498-)で取得可能)**
+    * `roles` _String[]_ 権限ID **(使わない？)**
     * `users` _String[]_ この画面を操作できるユーザID
 * `tweetTemplate` _Object_ テンプレート
   * `title` _String_ **テンプレ一覧に表示するタイトル**
   * `type` _'withCommentary' | 'withOutCommentary' | 'common'_
-    * withCommentary: 解説がいる場合のテンプレ
-    * withOutCommentary: 解説がいない場合のテンプレ
-    * common: 共通するテンプレ
+    * _withCommentary_ **解説がいる場合のテンプレ**
+    * _withOutCommentary_ **解説がいない場合のテンプレ**
+    * _common_ **共通するテンプレ**
 * `tweetFooter` _String_ **全てのツイートの末尾に追加する文言**
 * `link` _Object[]_ クライアントから見れるリンクの一覧。
   * `name` _String_ リンクの表示名
