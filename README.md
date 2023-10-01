@@ -76,7 +76,7 @@ Windows 10 Home での動作を確認しています。
 [Twitter API](https://github.com/pingval/rtainjapan-twitter-api-node)を起動しておく。
 
 ```
-cd rta-in-japan-twitter-client-master
+cd rta-in-japan-twitter-client
 npm install
 npm start
 ```
@@ -184,6 +184,6 @@ const devServerConfig: webpackDevServer.Configuration = {
 
 ----
 
-あとはブラウザのデベロッパーツールとかと睨めっこしながらがんばってください。
+ブラウザのデベロッパーツールとかと睨めっこしながらがんばってください。
 
 JSONは末尾カンマとコメントが使えないので気を付けてね。
