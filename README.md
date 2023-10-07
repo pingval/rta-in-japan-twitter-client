@@ -25,6 +25,8 @@
 - Tweet一覧の返信とハッシュタグが機能していないので削除
 - fetchJson関数にngrok対策を追加(あんまり意味はない)
 
+[実際に動かしている様子(LSS2023 ボランティアマニュアル抜粋)](https://docs.google.com/document/d/1S1RWSOAdQ0fSHa8FNe5z8Q1_XYxuEq7a1_4wwm3xE6I/edit#heading=h.49x2ik5)
+
 Windows 10 Home での動作を確認しています。
 
 ## Config
