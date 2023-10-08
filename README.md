@@ -49,9 +49,9 @@ Windows 10 Home での動作を確認しています。
       * `clientSecret` _String_ (使わない)
       * `redirectUrl` _String_ **(使わない) ここで入力した値ではなく https://discord.com/developers/applications/ > OAuth2 > General > Redirects の値が使用される。 `https://<hostname>/login/discord/` と設定する。**
       * `scope` _String_ Scope **よくわからない**
-    * `guild` _String_ サーバID **(IDは[開発者モード](https://support.discord.com/hc/ja/articles/206346498-)で取得可能)**
+    * `guild` _String_ サーバID **([開発者モード](https://support.discord.com/hc/ja/articles/206346498-)で取得可能)**
     * `roles` _String[]_ 権限ID **(使わない？)**
-    * `users` _String[]_ この画面を操作できるユーザID
+    * `users` _String[]_ この画面を操作できるユーザID **([開発者モード](https://support.discord.com/hc/ja/articles/206346498-)で取得可能)**
 * `tweetTemplate` _Object_ テンプレート
   * `title` _String_ **テンプレ一覧に表示するタイトル**
   * `type` _'withCommentary' | 'withOutCommentary' | 'common'_
