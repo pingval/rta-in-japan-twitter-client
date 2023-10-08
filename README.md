@@ -20,7 +20,7 @@
 ## 概要
 
 主な変更点
-- 固定サブドメインを2個立てたりCORS設定する手間を嫌い、Twitter APIにはproxyでアクセスするようにした
+- 固定サブドメインを2個立てたりCORS設定する手間を嫌い、Twitter APIサーバーにはproxyでアクセスするようにした
 - Twitter API関連の`foo.user.bar`を`foo.bar`に置換
 - Tweet一覧の返信とハッシュタグが機能していないので削除
 - fetchJson関数にngrok対策を追加(あんまり意味はない)
@@ -40,7 +40,7 @@ Windows 10 Home での動作を確認しています。
     * `runner` _String_ 走者情報APIのURL
     * `webhook` _String_ **[Discord Webhook](https://support.discord.com/hc/ja/articles/228383668-%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB-Webhooks%E3%81%B8%E3%81%AE%E5%BA%8F%E7%AB%A0)のURL**
 * `twitter` _Object_
-    * `isAllowDeleteTweet` _Boolean_ **ツイート削除の許可(API起動後かつ本クライアントから投稿したツイートのみ削除可能)**
+    * `isAllowDeleteTweet` _Boolean_ **ツイート削除の許可(Twitter APIサーバー起動後かつ本クライアントから投稿したツイートのみ削除可能)**
 * `discord` _Object_
     * `enable` _Boolean_ **Discord認証機能を有効にする**
     * `config` _Object_ DiscordAPI認証設定
@@ -69,13 +69,13 @@ Windows 10 Home での動作を確認しています。
 ## ローカルで動かす
 
 以下の2点を動かす。
-- Twiter API
+- Twitter APIサーバー
 - Twitterクライアント
 
 [node.js](https://nodejs.org/ja/download)をインストールする。
 (v17以上の場合、`set NODE_OPTIONS="--openssl-legacy-provider"`が必要になる)
 
-[Twitter API](https://github.com/pingval/rtainjapan-twitter-api-node)を起動しておく。
+[Twitter APIサーバー](https://github.com/pingval/rtainjapan-twitter-api-node)を起動しておく。
 
 ```
 cd rta-in-japan-twitter-client
@@ -86,7 +86,7 @@ npm start
 ## 外部公開する
 
 以下の3点を動かす。
-- Twiter API
+- Twitter APIサーバー
 - Twitterクライアント
 - ngrok(トンネリングツール)
 
@@ -182,7 +182,7 @@ const devServerConfig: webpackDevServer.Configuration = {
 - Discord認証とDiscord Webhookを有効にしておくと、クライアント設置者にはWebhookによってツイートの投稿者がわかります。
 - 2023年9月現在、Twitter API Freeプランには[**50回/24時間**](https://zenn.dev/ptna/articles/e10881e74dfc27#%E5%88%B6%E9%99%90)のツイート制限があり、それに引っ掛かると**最大で24時間**投稿不可になります。投稿時、画面左下に「Too Many Requests」と表示されることでそれがわかります。
   - API制限に引っ掛かっても、Webクライアントの方は問題なく使えます。
-  - `"debug": true`と設定してAPIを起動すると、API制限発動時、標準出力に`Response headers`が出力されます。その中の`x-user-limit-24hour-reset`ヘッダの値がAPI制限が解除されるUNIX時間(+UTC9)です。参考: [UNIX時間⇒日付変換 - 高精度計算サイト](https://keisan.casio.jp/exec/system/1526004418)
+  - `"debug": true`と設定してTwitter APIサーバーを起動すると、API制限発動時、標準出力に`Response headers`が出力されます。その中の`x-user-limit-24hour-reset`ヘッダの値がAPI制限が解除されるUNIX時間(+UTC9)です。参考: [UNIX時間⇒日付変換 - 高精度計算サイト](https://keisan.casio.jp/exec/system/1526004418)
 - 「ファイルアップロードに失敗」する動画がたまにありますが、本クライアントではなくTwitter自体の仕様のようです。
   - ソース画質のTwitchクリップには、アップロードに失敗するものがたまにあります。ソース画質以外なら失敗しないようです。
 
