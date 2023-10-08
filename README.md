@@ -110,7 +110,7 @@ ngrok http --domain <hostname> <port>
 ngrok config edit
 ```
 と実行して設定ファイルを開き
-```
+```yml
 version: "2"
 authtoken: <authtoken>
 tunnels:
@@ -131,7 +131,7 @@ ngrok start twitter-client
 [webpack.config.ts](webpack.config.ts)
 
 webpack-dev-serverの設定に最後の2行を追加する。
-```
+```js
 // webpack-dev-serverの設定
 const devServerConfig: webpackDevServer.Configuration = {
   contentBase: 'docs',
