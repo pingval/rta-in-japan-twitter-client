@@ -181,7 +181,7 @@ const devServerConfig: webpackDevServer.Configuration = {
 - クライアントURLが漏洩した場合に備え、多人数に公開する時はDiscord認証を有効にしておくのを強く推奨します。
 - Discord認証とDiscord Webhookを有効にしておくと、クライアント設置者にはWebhookによってツイートの投稿者がわかります。
 - 2023年9月現在、Twitter API Freeプランには[**50回/24時間**](https://zenn.dev/ptna/articles/e10881e74dfc27#%E5%88%B6%E9%99%90)のツイート制限があり、それに引っ掛かると**最大で24時間**投稿不可になります。投稿時、画面左下に「Too Many Requests」と表示されることでそれがわかります。
-  - Twitter APIサーバーを`"debug": true`と設定して起動しておくと、API制限発動時、標準出力に`Response headers`が出力されます。その中の`x-user-limit-24hour-reset`ヘッダの値が、API制限が解除されるUNIX時間(UTC+9)です。参考: [UNIX時間⇒日付変換 - 高精度計算サイト](https://keisan.casio.jp/exec/system/1526004418)
+  - Twitter APIサーバーを`"debug": true`と設定して起動しておくと、API制限発動時、標準出力に`Response headers`が出力されます。その中の`x-user-limit-24hour-reset`ヘッダの値が、API制限が解除されるUNIX時間です。参考: [UNIX時間⇒日付変換 - 高精度計算サイト](https://keisan.casio.jp/exec/system/1526004418)
   - API制限に引っ掛かっても、Webクライアントの方は問題なく使えます。
 - 「ファイルアップロードに失敗」する動画がたまにありますが、本クライアントではなくTwitter自体の仕様のようです。
   - ソース画質のTwitchクリップには、アップロードに失敗するものがたまにあります。ソース画質以外なら失敗しないようです。
