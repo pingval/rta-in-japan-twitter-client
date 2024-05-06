@@ -314,20 +314,10 @@ function* uploadMedia(action: ReturnType<typeof actions.uploadMedia>) {
           if (tempMedia.map((item) => item.name).includes(nowMedia.name)) throw new Error('同名のファイルは選択できません。');
         }
 
-        // リストに登録できるのは、動画1 or 画像1～4
-        console.log('整合性チェック1');
-        // 動画があるのに何か指定された
-        const isOrgMediaIncludeVideo = tempMedia.filter((media) => media.type.includes('video')).length > 0;
-        if (isOrgMediaIncludeVideo) throw new Error('アップロードできるのは動画1つ、もしくは画像4つまでです。');
-
-        // 何か登録されてるのに動画が指定された
-        console.log('整合性チェック2');
-        const isNowMediaIncludeVideo = nowMedia.type.includes('video');
-        if (tempMedia.length > 0 && isNowMediaIncludeVideo) throw new Error('アップロードできるのは動画1つ、もしくは画像4つまでです。');
-
-        // なんやかんやで合計が4つ以上になりそう
-        console.log('整合性チェック3');
-        if (tempMedia.length >= 4) throw new Error('アップロードできるのは動画1つ、もしくは画像4つまでです。');
+	// リストに登録できるのは、画像と動画あわせて1～4 https://blog.x.com/ja_jp/topics/product/2022/introducing_mixed_media_videos_images_gifs_together_one_tweet
+	// なんやかんやで合計が4つ以上になりそう
+	console.log('整合性チェック');
+	if (tempMedia.length >= 4) throw new Error('アップロードできるのは画像と動画あわせて4つまでです。');
 
         tempMedia.push(nowMedia);
       }
